@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dra. Valdete Veiga — Estética Integrativa &amp; Fisioterapia</title>
+  <meta name="description" content="Cuidado individualizado em estética integrativa e fisioterapia Dermatofuncional. Procedimentos faciais, corporais e terapêuticos com a Dra. Valdete Veiga." />
+
+  <!-- Tipografia Editorial: Cormorant Garamond & Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Jost"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FCFBF8',
+              100: '#F7F4EE',
+              200: '#EFE9DE',
+              300: '#E2D8C7',
+            },
+            gold: {
+              300: '#DEC78A',
+              400: '#C9A961',
+              500: '#B59247',
+              600: '#967632',
+            },
+            espresso: {
+              700: '#4A4238',
+              800: '#2E2923',
+              900: '#1C1915',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Variáveis de Design e Tema Adaptativo (Claro / Escuro Automático) */
+    :root {
+      --bg-primary: #FCFBF8;
+      --bg-secondary: #F5F1E8;
+      --bg-card: #FFFFFF;
+      --text-primary: #26221D;
+      --text-secondary: #5E564C;
+      --accent-gold: #B59247;
+      --accent-gold-hover: #967632;
+      --border-subtle: rgba(181, 146, 71, 0.22);
+      --shadow-card: 0 12px 32px -8px rgba(38, 34, 29, 0.07);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-primary: #171512;
+        --bg-secondary: #1F1C18;
+        --bg-card: #25211C;
+        --text-primary: #F5F0E6;
+        --text-secondary: #BDB4A5;
+        --accent-gold: #C9A961;
+        --accent-gold-hover: #DEC78A;
+        --border-subtle: rgba(201, 169, 97, 0.22);
+        --shadow-card: 0 14px 36px -8px rgba(0, 0, 0, 0.45);
+      }
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Jost', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .font-editorial {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Cartão de Procedimento com altura uniforme e botão sem corte */
+    .procedure-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .procedure-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-gold);
+    }
+
+    .procedure-card img {
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .procedure-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Botão do cartão com quebra de linha suave para títulos longos */
+    .btn-procedure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      min-height: 2.85rem;
+      padding: 0.65rem 1rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(135deg, #C9A961 0%, #A9863D 100%);
+      color: #1C1915;
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.3;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      box-shadow: 0 4px 14px rgba(181, 146, 71, 0.25);
+      transition: all 0.28s ease;
+    }
+
+    .btn-procedure:hover {
+      background: linear-gradient(135deg, #D6B872 0%, #B59247 100%);
+      box-shadow: 0 6px 20px rgba(181, 146, 71, 0.38);
+      transform: translateY(-1px);
+    }
+
+    /* Animações de revelação no scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Filtro ativo */
+    .filter-pill.active {
+      background-color: var(--accent-gold);
+      color: #1C1915;
+      border-color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    /* Opção selecionada no widget do WhatsApp */
+    .wa-topic-btn.selected {
+      background-color: rgba(181, 146, 71, 0.16);
+      border-color: var(--accent-gold);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#C9A961]/30">
+
+  <!-- ==================== 1. HEADER FIXO ==================== -->
+  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-[#FCFBF8]/90 dark:bg-[#171512]/90 border-b border-[#B59247]/20 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <!-- Logótipo -->
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border border-[#B59247]/60 flex items-center justify-center bg-[#F5F1E8] dark:bg-[#25211C] text-[#B59247] dark:text-[#C9A961] font-editorial text-xl font-semibold tracking-wider">
+          VV
+        </div>
+        <div class="flex flex-col">
+          <span class="font-editorial text-xl sm:text-2xl font-semibold tracking-tight leading-none">
+            Dra. Valdete Veiga
+          </span>
+          <span class="text-[11px] uppercase tracking-[0.22em] text-[#B59247] dark:text-[#C9A961] mt-1">
+            Estética &amp; Fisioterapia
+          </span>
+        </div>
+      </a>
+
+      <!-- Navegação Desktop -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-7 text-sm tracking-wide">
+        <a href="#inicio" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">Início</a>
+        <a href="#sobre" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">Sobre</a>
+        <a href="#procedimentos" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">Procedimentos</a>
+        <a href="#espaco" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">O Espaço</a>
+        <a href="#avaliacoes" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">Avaliações</a>
+        <a href="#contacto" class="hover:text-[#B59247] dark:hover:text-[#C9A961] transition-colors">Contacto</a>
+      </nav>
+
+      <!-- Botão Agendamento & Menu Mobile -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a
+          href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-[#B59247] hover:bg-[#967632] text-white transition-all shadow-sm"
+        >
+          <span>Agendar Avaliação</span>
+        </a>
+
+        <!-- Botão Hambúrguer Mobile -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Abrir menu de navegação"
+          class="md:hidden p-2.5 rounded-xl border border-[#B59247]/30 text-current hover:bg-[#B59247]/10 transition-colors"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Expandido -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#B59247]/20 bg-[#FCFBF8] dark:bg-[#171512] px-6 py-5 space-y-3">
+      <a href="#inicio" class="mobile-link block py-2 text-base hover:text-[#B59247]">Início</a>
+      <a href="#sobre" class="mobile-link block py-2 text-base hover:text-[#B59247]">Sobre</a>
+      <a href="#procedimentos" class="mobile-link block py-2 text-base hover:text-[#B59247]">Procedimentos</a>
+      <a href="#espaco" class="mobile-link block py-2 text-base hover:text-[#B59247]">O Espaço</a>
+      <a href="#avaliacoes" class="mobile-link block py-2 text-base hover:text-[#B59247]">Avaliações</a>
+      <a href="#contacto" class="mobile-link block py-2 text-base hover:text-[#B59247]">Contacto</a>
+      <div class="pt-2">
+        <a
+          href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block w-full text-center py-3 rounded-xl bg-[#B59247] text-white font-medium"
+        >
+          Agendar Avaliação via WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <!-- ==================== 2. SECÇÃO HERO ==================== -->
+    <section id="inicio" class="relative py-16 sm:py-24 lg:py-28 overflow-hidden">
+      <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#C9A961]/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute bottom-0 -left-24 w-80 h-80 rounded-full bg-[#B59247]/10 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Texto Hero -->
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#B59247]/35 bg-[#F5F1E8] dark:bg-[#25211C] text-xs uppercase tracking-[0.2em] text-[#967632] dark:text-[#DEC78A]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#B59247]"></span>
+            Saúde, Bem-Estar &amp; Beleza Natural
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.12] tracking-tight">
+            Cuidado individualizado em <span class="italic text-[#B59247] dark:text-[#C9A961]">estética integrativa</span> e fisioterapia.
+          </h1>
+
+          <p class="text-base sm:text-lg text-[#5E564C] dark:text-[#BDB4A5] max-w-2xl leading-relaxed font-light">
+            Protocolos personalizados que unem ciência, técnicas avançadas e acolhimento humano para restaurar o equilíbrio do corpo, aliviar dores e realçar a sua beleza com naturalidade e segurança.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20personalizada."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl bg-[#B59247] hover:bg-[#967632] text-white font-medium shadow-md hover:shadow-lg transition-all"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+              </svg>
+              <span>Agendar Avaliação via WhatsApp</span>
+            </a>
+
+            <a
+              href="#procedimentos"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl border border-[#B59247]/50 hover:border-[#B59247] hover:bg-[#B59247]/10 font-medium transition-all"
+            >
+              <span>Conhecer Procedimentos</span>
+            </a>
+          </div>
+
+          <!-- Indicadores de confiança -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-[#B59247]/20 max-w-lg">
+            <div>
+              <p class="font-editorial text-2xl sm:text-3xl font-semibold text-[#B59247] dark:text-[#C9A961]">15+</p>
+              <p class="text-xs sm:text-sm text-[#5E564C] dark:text-[#BDB4A5]">Técnicas &amp; Protocolos</p>
+            </div>
+            <div>
+              <p class="font-editorial text-2xl sm:text-3xl font-semibold text-[#B59247] dark:text-[#C9A961]">100%</p>
+              <p class="text-xs sm:text-sm text-[#5E564C] dark:text-[#BDB4A5]">Atendimento Individual</p>
+            </div>
+            <div>
+              <p class="font-editorial text-2xl sm:text-3xl font-semibold text-[#B59247] dark:text-[#C9A961]">3 Áreas</p>
+              <p class="text-xs sm:text-sm text-[#5E564C] dark:text-[#BDB4A5]">Facial, Corporal &amp; Fisio</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fotografia de Destaque -->
+        <div class="lg:col-span-5 reveal">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -inset-3 rounded-3xl border border-[#B59247]/35 rotate-2 pointer-events-none"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] bg-[#EFE9DE] dark:bg-[#25211C]">
+              <img
+                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85"
+                alt="Atendimento de estética integrativa e cuidado facial"
+                onerror="this.src='https://placehold.co/800x1000/EFE9DE/4A4238?text=Dra.+Valdete+Veiga'"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent p-6 text-white">
+                <p class="font-editorial text-2xl italic">Equilíbrio entre saúde e estética</p>
+                <p class="text-xs tracking-wider uppercase text-white/80 mt-1">Protocolos exclusivos e humanizados</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. SOBRE A DRA. VALDETE VEIGA ==================== -->
+    <section id="sobre" class="py-20 sm:py-28 bg-[#F5F1E8] dark:bg-[#1F1C18] border-y border-[#B59247]/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Retrato Real da Dra. Valdete Veiga -->
+        <div class="lg:col-span-5 reveal">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            <div class="absolute -inset-3 rounded-3xl border border-[#B59247]/35 -rotate-2 pointer-events-none"></div>
+            <div class="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-[#8D857B] dark:bg-[#25211C] border border-[#B59247]/25">
+              <img
+                src="Captura de tela 2026-11-16 145951.png"
+                alt="Dra. Valdete Veiga — Fisioterapeuta Dermatofuncional"
+                onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=900&q=85';"
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Sobre -->
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <span class="text-xs uppercase tracking-[0.25em] text-[#B59247] dark:text-[#C9A961] font-medium">
+            Conheça a Especialista
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-semibold leading-tight">
+            Sobre a Dra. Valdete Veiga
+          </h2>
+          <p class="text-base text-[#5E564C] dark:text-[#BDB4A5] leading-relaxed font-light">
+            Como <strong class="font-medium text-current">Fisioterapeuta Dermatofuncional</strong>, a <strong class="font-medium text-current">Dra. Valdete Veiga</strong> dedica-se a ajudar você a viver a vida com mais qualidade e autoestima — unindo os fundamentos clínicos da <strong class="font-medium text-current">Fisioterapia</strong> às técnicas mais refinadas da <strong class="font-medium text-current">Estética Facial e Corporal</strong>.
+          </p>
+          <p class="text-base text-[#5E564C] dark:text-[#BDB4A5] leading-relaxed font-light">
+            Cada atendimento inicia-se com uma escuta atenta e uma avaliação individualizada, respeitando a anatomia, a história e os objetivos de cada paciente para entregar resultados naturais, duradouros e seguros.
+          </p>
+
+          <!-- Diferenciais -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#25211C] border border-[#B59247]/20 shadow-sm">
+              <h3 class="text-xl font-semibold text-[#B59247] dark:text-[#C9A961]">Abordagem Integrativa</h3>
+              <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-1">
+                Tratamento da causa e não apenas dos sintomas, alinhando saúde interna e bem-estar estético.
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-white dark:bg-[#25211C] border border-[#B59247]/20 shadow-sm">
+              <h3 class="text-xl font-semibold text-[#B59247] dark:text-[#C9A961]">Protocolos Sob Medida</h3>
+              <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-1">
+                Associação inteligente de técnicas manuais, injetáveis e terapêuticas conforme a sua necessidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. PROCEDIMENTOS REALIZADOS ==================== -->
+    <section id="procedimentos" class="py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Cabeçalho da Secção -->
+        <div class="text-center max-w-3xl mx-auto space-y-4 reveal">
+          <span class="text-xs uppercase tracking-[0.25em] text-[#B59247] dark:text-[#C9A961] font-medium">
+            Excelência em Cada Detalhe
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight">
+            Procedimentos Realizados
+          </h2>
+          <p class="text-sm sm:text-base text-[#5E564C] dark:text-[#BDB4A5] font-light">
+            Explore os nossos tratamentos divididos por especialidade. Selecione um procedimento para conversar diretamente connosco e tirar todas as suas dúvidas.
+          </p>
+
+          <!-- Filtros Rápidos por Categoria -->
+          <div class="pt-4 flex flex-wrap items-center justify-center gap-2.5" role="tablist" aria-label="Filtrar procedimentos por categoria">
+            <button type="button" data-filter="all" class="filter-pill active px-5 py-2 rounded-full text-sm border border-[#B59247]/35 transition-all">
+              Todos (15)
+            </button>
+            <button type="button" data-filter="faciais" class="filter-pill px-5 py-2 rounded-full text-sm border border-[#B59247]/35 hover:border-[#B59247] transition-all">
+              Faciais (6)
+            </button>
+            <button type="button" data-filter="corporais" class="filter-pill px-5 py-2 rounded-full text-sm border border-[#B59247]/35 hover:border-[#B59247] transition-all">
+              Corporais (3)
+            </button>
+            <button type="button" data-filter="fisioterapia" class="filter-pill px-5 py-2 rounded-full text-sm border border-[#B59247]/35 hover:border-[#B59247] transition-all">
+              Fisioterapia (6)
+            </button>
+          </div>
+        </div>
+
+        <!-- Container Dinâmico das 3 Subsecções -->
+        <div id="procedures-container" class="mt-14 space-y-20">
+          <!-- Renderizado via JavaScript com todos os 15 procedimentos organizados -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. O ESPAÇO (FOTOS REAIS DA CLÍNICA) ==================== -->
+    <section id="espaco" class="py-20 sm:py-28 bg-[#F5F1E8] dark:bg-[#1F1C18] border-y border-[#B59247]/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center max-w-2xl mx-auto space-y-3 reveal">
+          <span class="text-xs uppercase tracking-[0.25em] text-[#B59247] dark:text-[#C9A961] font-medium">
+            Ambiente Acolhedor
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-semibold">O Espaço</h2>
+          <p class="text-sm sm:text-base text-[#5E564C] dark:text-[#BDB4A5] font-light">
+            Um ambiente preparado com carinho para receber você com tranquilidade, conforto e bem-estar desde a chegada. Clique nas fotos para ampliar.
+          </p>
+        </div>
+
+        <!-- Galeria com as 2 Fotografias Reais da Clínica -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto reveal">
+          <!-- Foto Real 1: Recepção -->
+          <div
+            class="space-card group rounded-3xl overflow-hidden shadow-lg bg-white dark:bg-[#25211C] border border-[#B59247]/25 cursor-pointer flex flex-col"
+            data-lightbox-src="unnamed.webp"
+            data-lightbox-title="Recepção — Clínica Dra. Valdete Veiga"
+            data-lightbox-desc="Ambiente iluminado com decoração floral em tons dourados e acolhimento personalizado desde o primeiro instante."
+            role="button"
+            tabindex="0"
+            aria-label="Ampliar foto da Recepção"
+          >
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#EFE9DE] dark:bg-[#2E2923]">
+              <img
+                src="unnamed.webp"
+                alt="Recepção da clínica Dra. Valdete Veiga Fisioterapia e Estética"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x1060/EFE9DE/4A4238?text=Recep%C3%A7%C3%A3o+Valdete+Veiga';"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md text-white text-xs flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zm0-11v6m-3-3h6" />
+                </svg>
+                <span>Ampliar</span>
+              </div>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] uppercase tracking-[0.2em] text-[#B59247] dark:text-[#C9A961] font-medium">
+                  Primeiro Contato
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-semibold mt-1">Recepção &amp; Boas-Vindas</h3>
+                <p class="text-sm sm:text-base text-[#5E564C] dark:text-[#BDB4A5] mt-2 font-light leading-relaxed">
+                  Um espaço elegante e inspirador, projetado para transmitir paz, cuidado e atenção aos mínimos detalhes logo na sua chegada.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foto Real 2: Sala de Espera & Café -->
+          <div
+            class="space-card group rounded-3xl overflow-hidden shadow-lg bg-white dark:bg-[#25211C] border border-[#B59247]/25 cursor-pointer flex flex-col"
+            data-lightbox-src="unnamed (3).webp"
+            data-lightbox-title="Sala de Espera &amp; Acolhimento — Clínica Dra. Valdete Veiga"
+            data-lightbox-desc="Cantinho do café, água fresca e poltronas confortáveis para você respirar fundo e relaxar antes do seu procedimento."
+            role="button"
+            tabindex="0"
+            aria-label="Ampliar foto da Sala de Espera"
+          >
+            <div class="relative aspect-[3/4] w-full overflow-hidden bg-[#EFE9DE] dark:bg-[#2E2923]">
+              <img
+                src="unnamed (3).webp"
+                alt="Sala de espera aconchegante com cantinho do café na clínica Dra. Valdete Veiga"
+                onerror="this.onerror=null;this.src='https://placehold.co/800x1060/EFE9DE/4A4238?text=Sala+de+Espera+Valdete+Veiga';"
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md text-white text-xs flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16zm0-11v6m-3-3h6" />
+                </svg>
+                <span>Ampliar</span>
+              </div>
+            </div>
+            <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] uppercase tracking-[0.2em] text-[#B59247] dark:text-[#C9A961] font-medium">
+                  Conforto &amp; Pausa
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-semibold mt-1">Sala de Espera &amp; Acolhimento</h3>
+                <p class="text-sm sm:text-base text-[#5E564C] dark:text-[#BDB4A5] mt-2 font-light leading-relaxed">
+                  Um refúgio tranquilo com cantinho do café e poltronas confortáveis para você deixar as preocupações de lado e aproveitar o seu momento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. AVALIAÇÕES NO GOOGLE ==================== -->
+    <section id="avaliacoes" class="py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-[#F5F1E8] dark:bg-[#25211C] border border-[#B59247]/25 p-8 sm:p-12 lg:p-16 shadow-lg reveal">
+          <div class="max-w-3xl mx-auto text-center space-y-5">
+            <span class="text-xs uppercase tracking-[0.25em] text-[#B59247] dark:text-[#C9A961] font-medium">
+              A Sua Opinião É Muito Importante
+            </span>
+
+            <h2 class="text-3xl sm:text-5xl font-semibold leading-tight">
+              Avalie a Sua Experiência
+            </h2>
+
+            <p class="text-base text-[#5E564C] dark:text-[#BDB4A5] font-light max-w-2xl mx-auto leading-relaxed">
+              Já realizou algum atendimento estético ou fisioterapêutico com a <strong class="font-medium text-current">Dra. Valdete Veiga</strong>? Deixe a sua avaliação oficial no Google e ajude outras pessoas a conhecerem o nosso cuidado.
+            </p>
+
+            <!-- Selo Google + Seletor Interativo de Estrelas -->
+            <div class="pt-4 pb-2 flex flex-col items-center justify-center gap-3">
+              <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-2xl bg-white dark:bg-[#1C1915] border border-[#B59247]/25 shadow-sm">
+                <!-- Ícone oficial Google G -->
+                <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17Z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.11-6.72-4.96H1.29v3.14C3.26 21.3 7.31 24 12 24Z"/>
+                  <path fill="#FBBC05" d="M5.28 14.24c-.24-.72-.38-1.49-.38-2.24s.14-1.52.38-2.24V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.99-3.14Z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.99 3.14c.95-2.85 3.6-4.96 6.72-4.96Z"/>
+                </svg>
+                <span class="font-editorial text-2xl font-semibold">5,0</span>
+                <div id="star-selector" class="flex items-center gap-1" role="group" aria-label="Selecione uma classificação de 1 a 5 estrelas">
+                  <button type="button" data-star="1" aria-label="1 estrela" class="star-btn text-[#C9A961] hover:scale-110 transition-transform focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  </button>
+                  <button type="button" data-star="2" aria-label="2 estrelas" class="star-btn text-[#C9A961] hover:scale-110 transition-transform focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  </button>
+                  <button type="button" data-star="3" aria-label="3 estrelas" class="star-btn text-[#C9A961] hover:scale-110 transition-transform focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  </button>
+                  <button type="button" data-star="4" aria-label="4 estrelas" class="star-btn text-[#C9A961] hover:scale-110 transition-transform focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  </button>
+                  <button type="button" data-star="5" aria-label="5 estrelas" class="star-btn text-[#C9A961] hover:scale-110 transition-transform focus:outline-none">
+                    <svg class="w-6 h-6 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  </button>
+                </div>
+                <span class="text-xs uppercase tracking-wider text-[#5E564C] dark:text-[#BDB4A5]">Google</span>
+              </div>
+
+              <p id="star-feedback-text" class="text-sm text-[#967632] dark:text-[#DEC78A] font-medium">
+                Excelente! Clique no botão abaixo para publicar a sua avaliação no Google.
+              </p>
+            </div>
+
+            <!-- Botões de Ação para o Google -->
+            <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="https://www.google.com/search?sca_esv=bb22f1d96da314dc&rlz=1C1AVFC_enBR884BR884&sxsrf=AE3TifPu0wl3BZe3uOW1fbeddhTe5A8Vg:1759583409032&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E0xLy2S6JbzsFSdmVPKH7fPIEpgpEiQ41Z7kaOOT1NgtwSKiGdEVYtgrscgIK8h3Dz3Ift1TeLNJNkn-pkZ02Htk5eJqK1cF_zdN0GWVoQhQ74isdva09q1aQmOJYtjpb5tf2vrYFT_ORsWiVUhPpKm-pQ7CdSdZRpa-Udg4X1gMnqU8x7K-9mAPbuWVhpeS4SuqR0gWZCFyhM99kKzWSXIK3GYoteODSHQ9A2Ual3N7nASeofPDGRlzEP8bihVQeEnOR6E%3D&q=Dra+Val+Veiga+%7C+CL%C3%8DNICA+DE+EST%C3%89TICA+%7C+CL%C3%8DNICA+DE+FISIOTERAPIA+%7C+LIMPEZA+DE+PELE,+BOTOX,+PELLING,+DRENAGEM,+MASSAGEM+RELAXANTE+Coment%C3%A1rios&sa=X&ved=2ahUKEwjW_7CAz4qQAxWeqpUCHfOgK1EQ0bkNegQINBAD&biw=1821&bih=809&dpr=0.75#lrd=0x94cf03e83629314f:0x158e6e57d1021d55,3,,,,"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#B59247] hover:bg-[#967632] text-white font-medium text-base shadow-md hover:shadow-xl transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span>Avaliar no Google</span>
+              </a>
+
+              <a
+                href="https://www.google.com/search?sca_esv=bb22f1d96da314dc&rlz=1C1AVFC_enBR884BR884&sxsrf=AE3TifPu0wl3BZe3uOW1fbeddhTe5A8Vg:1759583409032&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E0xLy2S6JbzsFSdmVPKH7fPIEpgpEiQ41Z7kaOOT1NgtwSKiGdEVYtgrscgIK8h3Dz3Ift1TeLNJNkn-pkZ02Htk5eJqK1cF_zdN0GWVoQhQ74isdva09q1aQmOJYtjpb5tf2vrYFT_ORsWiVUhPpKm-pQ7CdSdZRpa-Udg4X1gMnqU8x7K-9mAPbuWVhpeS4SuqR0gWZCFyhM99kKzWSXIK3GYoteODSHQ9A2Ual3N7nASeofPDGRlzEP8bihVQeEnOR6E%3D&q=Dra+Val+Veiga+%7C+CL%C3%8DNICA+DE+EST%C3%89TICA+%7C+CL%C3%8DNICA+DE+FISIOTERAPIA+%7C+LIMPEZA+DE+PELE,+BOTOX,+PELLING,+DRENAGEM,+MASSAGEM+RELAXANTE+Coment%C3%A1rios&sa=X&ved=2ahUKEwjW_7CAz4qQAxWeqpUCHfOgK1EQ0bkNegQINBAD&biw=1821&bih=809&dpr=0.75#lrd=0x94cf03e83629314f:0x158e6e57d1021d55,1,,,,"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl border border-[#B59247]/50 hover:border-[#B59247] hover:bg-[#B59247]/10 font-medium transition-all"
+              >
+                <span>Ler Comentários no Google</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Pilares Elogiados pelos Pacientes -->
+          <div class="mt-12 pt-10 border-t border-[#B59247]/20 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#1C1915] border border-[#B59247]/20">
+              <div class="text-[#C9A961] text-sm tracking-widest mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3 class="text-xl font-semibold">Atenção Humanizada</h3>
+              <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-2 font-light leading-relaxed">
+                Pacientes destacam o cuidado individual, a escuta acolhedora e o carinho em cada etapa do atendimento.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#1C1915] border border-[#B59247]/20">
+              <div class="text-[#C9A961] text-sm tracking-widest mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3 class="text-xl font-semibold">Resultados Naturais</h3>
+              <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-2 font-light leading-relaxed">
+                Protocolos eficazes tanto na estética facial e corporal quanto no alívio de dores e recuperação física.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-white dark:bg-[#1C1915] border border-[#B59247]/20">
+              <div class="text-[#C9A961] text-sm tracking-widest mb-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <h3 class="text-xl font-semibold">Ambiente Acolhedor</h3>
+              <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-2 font-light leading-relaxed">
+                Clínica impecável, tranquila e confortável, pensada para proporcionar uma experiência completa de bem-estar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. CONTACTO & LOCALIZAÇÃO ==================== -->
+    <section id="contacto" class="py-20 sm:py-28 bg-[#F5F1E8] dark:bg-[#1F1C18] border-t border-[#B59247]/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-3xl bg-white dark:bg-[#25211C] border border-[#B59247]/25 p-8 sm:p-12 lg:p-16 shadow-lg reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-5">
+              <span class="text-xs uppercase tracking-[0.25em] text-[#B59247] dark:text-[#C9A961] font-medium">
+                Agende o Seu Momento
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-semibold leading-tight">
+                Contacto &amp; Atendimento
+              </h2>
+              <p class="text-base text-[#5E564C] dark:text-[#BDB4A5] font-light max-w-xl">
+                Entre em contacto pelo WhatsApp para agendar a sua avaliação personalizada ou esclarecer dúvidas sobre qualquer procedimento facial, corporal ou fisioterapêutico.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-3 text-sm">
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wider text-xs text-[#B59247] dark:text-[#C9A961] font-semibold">Horário de Atendimento</p>
+                  <p class="text-[#26221D] dark:text-[#F5F0E6]">Segunda a Sexta: 08h às 19h</p>
+                  <p class="text-[#5E564C] dark:text-[#BDB4A5]">Sábado: 08h às 13h (com agendamento)</p>
+                </div>
+                <div class="space-y-1">
+                  <p class="uppercase tracking-wider text-xs text-[#B59247] dark:text-[#C9A961] font-semibold">Canais Diretos</p>
+                  <p class="text-[#26221D] dark:text-[#F5F0E6]">
+                    WhatsApp:
+                    <a
+                      href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="font-medium underline decoration-[#B59247]/60 hover:text-[#B59247] transition-colors"
+                    >
+                      (11) 98304-9692
+                    </a>
+                  </p>
+                  <p class="text-[#5E564C] dark:text-[#BDB4A5]">
+                    Telefone:
+                    <a href="tel:+5511983049692" class="hover:text-[#B59247] transition-colors">
+                      (11) 98304-9692
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col items-stretch sm:items-center lg:items-end justify-center gap-4">
+              <a
+                href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20marcar%20um%20hor%C3%A1rio."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#B59247] hover:bg-[#967632] text-white font-medium text-base shadow-md hover:shadow-xl transition-all"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                </svg>
+                <span>Falar no WhatsApp Agora</span>
+              </a>
+              <p class="text-xs text-[#5E564C] dark:text-[#BDB4A5] text-center lg:text-right">
+                Atendimento direto pelo (11) 98304-9692.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== RODAPÉ ==================== -->
+  <footer class="border-t border-[#B59247]/20 py-10 bg-[#FCFBF8] dark:bg-[#171512]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#5E564C] dark:text-[#BDB4A5]">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+        <span class="font-editorial text-xl font-semibold text-[#26221D] dark:text-[#F5F0E6]">Dra. Valdete Veiga</span>
+        <span>— Estética Integrativa &amp; Fisioterapia</span>
+        <span class="hidden sm:inline">&bull;</span>
+        <a
+          href="https://wa.me/5511983049692?text=Ol%C3%A1%20Dra.%20Valdete%20Veiga!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-[#B59247] transition-colors"
+        >
+          (11) 98304-9692
+        </a>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-5 text-xs">
+        <a href="#sobre" class="hover:text-[#B59247]">Sobre</a>
+        <a href="#procedimentos" class="hover:text-[#B59247]">Procedimentos</a>
+        <a href="#espaco" class="hover:text-[#B59247]">O Espaço</a>
+        <a href="#avaliacoes" class="hover:text-[#B59247]">Avaliações</a>
+        <span>&copy; <span id="current-year"></span> Dra. Valdete Veiga.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LIGHTBOX PARA FOTOS DO ESPAÇO ==================== -->
+  <div
+    id="space-lightbox"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4 sm:p-6"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+  >
+    <div class="relative max-w-3xl w-full bg-[#FCFBF8] dark:bg-[#1F1C18] rounded-3xl overflow-hidden shadow-2xl border border-[#B59247]/40">
+      <button
+        id="lightbox-close"
+        type="button"
+        aria-label="Fechar ampliação"
+        class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="max-h-[72vh] overflow-hidden bg-black flex items-center justify-center">
+        <img id="lightbox-img" src="" alt="" class="max-h-[72vh] w-auto object-contain" />
+      </div>
+
+      <div class="p-6">
+        <h3 id="lightbox-title" class="text-2xl font-semibold"></h3>
+        <p id="lightbox-desc" class="text-sm text-[#5E564C] dark:text-[#BDB4A5] mt-1 font-light"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== BOTÃO FLUTUANTE WHATSAPP COM SELETOR DE ASSUNTO ==================== -->
+  <div id="whatsapp-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <!-- Painel Interativo de Escolha de Assunto -->
+    <div
+      id="wa-selector-panel"
+      class="hidden mb-3 w-[calc(100vw-2.5rem)] max-w-sm rounded-3xl bg-[#FCFBF8] dark:bg-[#25211C] border border-[#B59247]/35 shadow-2xl overflow-hidden transition-all"
+      role="dialog"
+      aria-labelledby="wa-panel-title"
+    >
+      <!-- Cabeçalho do Painel -->
+      <div class="bg-gradient-to-r from-[#2E2923] to-[#1C1915] px-5 py-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-[#B59247] text-white flex items-center justify-center font-editorial font-semibold text-base">
+            VV
+          </div>
+          <div>
+            <h3 id="wa-panel-title" class="font-editorial text-lg font-semibold leading-tight">
+              Atendimento Dra. Valdete
+            </h3>
+            <p class="text-[11px] text-[#DEC78A] tracking-wide">
+              (11) 98304-9692 &bull; Online no WhatsApp
+            </p>
+          </div>
+        </div>
+        <button
+          id="wa-close-panel"
+          type="button"
+          aria-label="Fechar opções de conversa"
+          class="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Corpo do Painel -->
+      <div class="p-5 space-y-4">
+        <p class="text-sm text-[#26221D] dark:text-[#F5F0E6] font-medium">
+          Sobre o que você gostaria de falar?
+        </p>
+
+        <!-- Lista de 6 Opções Rápidas -->
+        <div id="wa-topics-list" class="grid grid-cols-1 gap-2">
+          <button
+            type="button"
+            data-topic="Agendar Avaliação / Consulta"
+            class="wa-topic-btn selected text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>1. Agendar Avaliação / Consulta</span>
+            <span class="text-[#B59247] text-xs">&#10003;</span>
+          </button>
+
+          <button
+            type="button"
+            data-topic="Procedimentos Faciais (Limpeza, Botox, Bioestimuladores, etc.)"
+            class="wa-topic-btn text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>2. Procedimentos Faciais</span>
+            <span class="text-[#B59247] text-xs opacity-0">&#10003;</span>
+          </button>
+
+          <button
+            type="button"
+            data-topic="Procedimentos Corporais (Harmonização, Peso, Intradermoterapia)"
+            class="wa-topic-btn text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>3. Procedimentos Corporais</span>
+            <span class="text-[#B59247] text-xs opacity-0">&#10003;</span>
+          </button>
+
+          <button
+            type="button"
+            data-topic="Fisioterapia (Acupuntura, Ozonioterapia, Massagem, Liberação)"
+            class="wa-topic-btn text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>4. Fisioterapia &amp; Terapias</span>
+            <span class="text-[#B59247] text-xs opacity-0">&#10003;</span>
+          </button>
+
+          <button
+            type="button"
+            data-topic="Valores, Pacotes e Horários Disponíveis"
+            class="wa-topic-btn text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>5. Valores, Pacotes e Horários</span>
+            <span class="text-[#B59247] text-xs opacity-0">&#10003;</span>
+          </button>
+
+          <button
+            type="button"
+            data-topic="Dúvidas Gerais / Outro Assunto"
+            class="wa-topic-btn text-left px-3.5 py-2.5 rounded-xl border border-[#B59247]/30 hover:border-[#B59247] text-xs sm:text-sm transition-all flex items-center justify-between"
+          >
+            <span>6. Dúvidas Gerais / Outro Assunto</span>
+            <span class="text-[#B59247] text-xs opacity-0">&#10003;</span>
+          </button>
+        </div>
+
+        <!-- Campo Opcional de Mensagem Personalizada -->
+        <div>
+          <label for="wa-custom-note" class="block text-[11px] uppercase tracking-wider text-[#5E564C] dark:text-[#BDB4A5] mb-1">
+            Mensagem adicional (opcional)
+          </label>
+          <input
+            id="wa-custom-note"
+            type="text"
+            placeholder="Ex.: Gostaria de horário no período da tarde..."
+            class="w-full px-3.5 py-2 rounded-xl text-xs sm:text-sm bg-white dark:bg-[#1C1915] border border-[#B59247]/30 focus:outline-none focus:border-[#B59247]"
+          />
+        </div>
+
+        <!-- Botão Iniciar Conversa -->
+        <button
+          id="wa-start-chat-btn"
+          type="button"
+          class="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#1ebe5d] text-white font-medium text-sm shadow-md flex items-center justify-center gap-2 transition-all"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+          </svg>
+          <span>Iniciar Conversa no WhatsApp</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Botão Redondo Principal -->
+    <button
+      id="wa-float-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="wa-selector-panel"
+      aria-label="Abrir opções de atendimento no WhatsApp"
+      class="group flex items-center gap-2.5 px-4 py-3.5 sm:px-5 rounded-full bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-xl transition-all hover:scale-105"
+    >
+      <svg class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+      </svg>
+      <span class="hidden sm:inline text-sm font-medium pr-1">Fale Connosco</span>
+    </button>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Número oficial de WhatsApp da Clínica Dra. Valdete Veiga: (11) 98304-9692
+    const WHATSAPP_NUMBER = '5511983049692';
+
+    // Dados completos dos 15 procedimentos organizados nas 3 categorias
+    const PROCEDURES_DATA = [
+      {
+        id: 'faciais',
+        category: 'Faciais',
+        subtitle: 'Cuidados avançados para luminosidade, firmeza e rejuvenescimento da pele do rosto.',
+        items: [
+          {
+            title: 'Limpeza de Pele',
+            description: 'Remove impurezas, células mortas e cravos, deixando a pele renovada.',
+            image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Microagulhamento',
+            description: 'Estimula a produção de colágeno, melhorando textura e linhas finas.',
+            image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Skinbooster',
+            description: 'Hidratação profunda injetável que devolve viço e elasticidade.',
+            image: 'https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Dermaplaning',
+            description: 'Esfoliação superficial que remove células mortas e penugem facial.',
+            image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Botox',
+            description: 'Suaviza rugas de expressão e previne envelhecimento.',
+            image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Bioestimuladores',
+            description: 'Estimulam a produção natural de colágeno, trazendo firmeza à pele.',
+            image: 'https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=800&q=80'
+          }
+        ]
+      },
+      {
+        id: 'corporais',
+        category: 'Corporais',
+        subtitle: 'Protocolos personalizados para contorno corporal, firmeza e equilíbrio metabólico.',
+        items: [
+          {
+            title: 'Gerenciamento de Peso',
+            description: 'Estratégias personalizadas para emagrecimento e equilíbrio corporal.',
+            image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Harmonização Glútea e Abdominal',
+            description: 'Remodela e define essas regiões, promovendo firmeza.',
+            image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Intradermoterapia',
+            description: 'Aplicação de ativos para tratar gordura localizada, celulite e flacidez.',
+            image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80'
+          }
+        ]
+      },
+      {
+        id: 'fisioterapia',
+        category: 'Fisioterapia',
+        subtitle: 'Terapias integrativas e manuais para alívio de dores, mobilidade e recuperação funcional.',
+        items: [
+          {
+            title: 'Acupuntura',
+            description: 'Técnica chinesa que alivia dores e promove equilíbrio energético.',
+            image: 'https://images.unsplash.com/photo-1512290746430-3ffb4fab31bc?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Ozonioterapia',
+            description: 'Uso de ozônio medicinal para oxigenação e recuperação do corpo.',
+            image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Terapia Neural',
+            description: 'Alívio de dores crônicas e regulação do sistema nervoso.',
+            image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Fisioterapia Integrativa',
+            description: 'Combinação de técnicas para reabilitação e bem-estar.',
+            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Massagem',
+            description: 'Promove relaxamento, alívio de tensões e melhora da circulação.',
+            image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80'
+          },
+          {
+            title: 'Liberação Miofascial',
+            description: 'Solta tensões musculares, aumenta mobilidade e reduz dores.',
+            image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80'
+          }
+        ]
+      }
+    ];
+
+    // Renderização dos procedimentos
+    function renderProcedures(filter = 'all') {
+      const container = document.getElementById('procedures-container');
+      if (!container) return;
+
+      const filteredGroups = filter === 'all'
+        ? PROCEDURES_DATA
+        : PROCEDURES_DATA.filter(group => group.id === filter);
+
+      container.innerHTML = filteredGroups.map(group => {
+        const cardsHtml = group.items.map(item => {
+          const message = encodeURIComponent(`Olá Dra. Valdete Veiga! Quero saber mais sobre ${item.title}.`);
+          const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+          const fallbackImg = `https://placehold.co/800x520/EFE9DE/4A4238?text=${encodeURIComponent(item.title)}`;
+
+          return `
+            <article class="procedure-card rounded-2xl overflow-hidden flex flex-col justify-between h-full">
+              <div>
+                <div class="aspect-[16/10] w-full overflow-hidden bg-[#EFE9DE] dark:bg-[#2E2923]">
+                  <img
+                    src="${item.image}"
+                    alt="${item.title}"
+                    loading="lazy"
+                    onerror="this.onerror=null;this.src='${fallbackImg}';"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-6 pb-4">
+                  <h4 class="text-2xl font-semibold text-[#967632] dark:text-[#DEC78A] leading-snug">
+                    ${item.title}
+                  </h4>
+                  <p class="mt-2.5 text-sm sm:text-[15px] text-[#5E564C] dark:text-[#BDB4A5] leading-relaxed font-light">
+                    ${item.description}
+                  </p>
+                </div>
+              </div>
+
+              <div class="px-6 pb-6 pt-2">
+                <a
+                  href="${whatsappUrl}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-procedure"
+                >
+                  <span>Quero saber mais sobre ${item.title}</span>
+                </a>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        return `
+          <div class="space-y-8" data-category-block="${group.id}">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-[#B59247]/25 pb-4">
+              <div>
+                <h3 class="text-3xl sm:text-4xl font-semibold tracking-tight text-[#26221D] dark:text-[#F5F0E6]">
+                  ${group.category}
+                </h3>
+                <p class="text-sm text-[#5E564C] dark:text-[#BDB4A5] font-light mt-1">
+                  ${group.subtitle}
+                </p>
+              </div>
+              <span class="text-xs uppercase tracking-[0.2em] text-[#B59247] dark:text-[#C9A961]">
+                ${group.items.length} procedimentos
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+              ${cardsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Inicialização após carregamento do DOM
+    document.addEventListener('DOMContentLoaded', () => {
+      // Ano atual no rodapé
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Renderizar procedimentos
+      renderProcedures('all');
+
+      // Filtros de categoria
+      const filterButtons = document.querySelectorAll('.filter-pill');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderProcedures(btn.dataset.filter);
+        });
+      });
+
+      // Menu Mobile
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+
+      // Lightbox das fotos do espaço
+      const lightbox = document.getElementById('space-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxDesc = document.getElementById('lightbox-desc');
+      const lightboxClose = document.getElementById('lightbox-close');
+
+      function openLightbox(card) {
+        if (!lightbox) return;
+        lightboxImg.src = card.dataset.lightboxSrc;
+        lightboxImg.alt = card.dataset.lightboxTitle;
+        lightboxTitle.textContent = card.dataset.lightboxTitle;
+        lightboxDesc.textContent = card.dataset.lightboxDesc;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+      }
+
+      document.querySelectorAll('.space-card').forEach(card => {
+        card.addEventListener('click', () => openLightbox(card));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox(card);
+          }
+        });
+      });
+
+      if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+      if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      // Seletor interativo de estrelas na secção de Avaliações
+      const starButtons = document.querySelectorAll('.star-btn');
+      const starFeedback = document.getElementById('star-feedback-text');
+      const starMessages = {
+        1: '1 estrela — Conte-nos como podemos melhorar a sua experiência no Google.',
+        2: '2 estrelas — A sua opinião ajuda-nos a aprimorar cada detalhe.',
+        3: '3 estrelas — Obrigado pelo seu retorno! Deixe o seu comentário no Google.',
+        4: '4 estrelas — Ficamos muito felizes! Partilhe a sua experiência no Google.',
+        5: '5 estrelas — Excelente! Clique no botão abaixo para publicar a sua avaliação no Google.'
+      };
+
+      starButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const rating = Number(btn.dataset.star);
+          starButtons.forEach(s => {
+            const val = Number(s.dataset.star);
+            s.classList.toggle('text-[#C9A961]', val <= rating);
+            s.classList.toggle('text-gray-300', val > rating);
+          });
+          if (starFeedback) {
+            starFeedback.textContent = starMessages[rating] || starMessages[5];
+          }
+        });
+      });
+
+      // Widget Flutuante do WhatsApp com Seletor de Assunto
+      const waToggle = document.getElementById('wa-float-toggle');
+      const waPanel = document.getElementById('wa-selector-panel');
+      const waClose = document.getElementById('wa-close-panel');
+      const waTopicBtns = document.querySelectorAll('.wa-topic-btn');
+      const waCustomNote = document.getElementById('wa-custom-note');
+      const waStartBtn = document.getElementById('wa-start-chat-btn');
+
+      let selectedTopic = 'Agendar Avaliação / Consulta';
+
+      function toggleWaPanel(forceState) {
+        if (!waPanel || !waToggle) return;
+        const isHidden = waPanel.classList.contains('hidden');
+        const shouldOpen = typeof forceState === 'boolean' ? forceState : isHidden;
+        waPanel.classList.toggle('hidden', !shouldOpen);
+        waToggle.setAttribute('aria-expanded', String(shouldOpen));
+      }
+
+      if (waToggle) {
+        waToggle.addEventListener('click', () => toggleWaPanel());
+      }
+      if (waClose) {
+        waClose.addEventListener('click', () => toggleWaPanel(false));
+      }
+
+      waTopicBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          waTopicBtns.forEach(b => {
+            b.classList.remove('selected');
+            const check = b.querySelector('span:last-child');
+            if (check) check.classList.add('opacity-0');
+          });
+          btn.classList.add('selected');
+          const activeCheck = btn.querySelector('span:last-child');
+          if (activeCheck) activeCheck.classList.remove('opacity-0');
+          selectedTopic = btn.dataset.topic;
+        });
+      });
+
+      if (waStartBtn) {
+        waStartBtn.addEventListener('click', () => {
+          const note = waCustomNote ? waCustomNote.value.trim() : '';
+          let fullMessage = `Olá Dra. Valdete Veiga! Vim pelo site e gostaria de falar sobre: *${selectedTopic}*.`;
+          if (note) {
+            fullMessage += `\n\nDetalhes: ${note}`;
+          }
+          const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullMessage)}`;
+          window.open(url, '_blank', 'noopener,noreferrer');
+        });
+      }
+
+      // Fechar Lightbox ou Painel WhatsApp com tecla Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+          toggleWaPanel(false);
+        }
+      });
+
+      // Observador de animações suaves no scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>
